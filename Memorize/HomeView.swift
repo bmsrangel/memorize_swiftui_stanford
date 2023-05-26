@@ -37,15 +37,17 @@ struct CardView: View {
                 shape
                     .fill()
                     .foregroundColor(.white)
-                // .stroke vs. .strokeBorder
-                // Stroke makes the border to outside the component, instead of to inside, such as Stroke Border
                 shape
                     .strokeBorder(lineWidth: 3)
                 Text(card.content).font(.largeTitle)
-            } else {
+            } else if card.isMatched {
+                shape.opacity(0)
+            }
+            else {
                 shape.fill()
             }
         }
+        .padding(1)
     }
 }
 

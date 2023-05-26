@@ -7,30 +7,34 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [Card]
+    
+    private var indexOfTheOneAndOnlyFaceUpCard: Int?
 
     mutating func choose(_ card: Card) {
-        let chosenIndex = index(of: card)
-        // this won't work because structs assignment create a copy of it
-        // to make it work, the toggle must be done directly to the array element
-//        var chosenCard = cards[chosenIndex]
-        cards[chosenIndex].isFaceUp.toggle()
-        print(cards)
-    }
-
-    func index(of card: Card) -> Int {
-        for index in 0 ..< cards.count {
-            if cards[index].id == card.id {
-                return index
+        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
+           !cards[chosenIndex].isFaceUp,
+           !cards[chosenIndex].isMatched {
+            if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                }
+                indexOfTheOneAndOnlyFaceUpCard = nil
+            } else {
+                for index in cards.indices {
+                    cards[index].isFaceUp = false
+                }
+                indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
+            cards[chosenIndex].isFaceUp.toggle()
         }
-        return 0
+        print(cards)
     }
 
     init(numberOfPairOfCards: Int, createCardContent: (Int) -> CardContent) {
         cards = []
-        // add numberOfPairOfCards x2
         for pairIndex in 0 ..< numberOfPairOfCards {
             let content = createCardContent(pairIndex)
             cards.append(Card(content: content, id: pairIndex * 2))
@@ -39,8 +43,6 @@ struct MemoryGame<CardContent> {
         cards.shuffle()
     }
 
-    // Nesting here is intentional, to cause an semantic effect to namespacing
-    // MemoryGame.Card
     struct Card: Identifiable {
         var isFaceUp: Bool = false
         var isMatched: Bool = false
