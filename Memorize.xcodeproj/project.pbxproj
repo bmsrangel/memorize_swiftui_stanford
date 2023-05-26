@@ -13,6 +13,7 @@
 		F09761F72A1E452900F4568C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09761F62A1E452900F4568C /* HomeView.swift */; };
 		F09761F92A1E452A00F4568C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09761F82A1E452A00F4568C /* Assets.xcassets */; };
 		F09761FC2A1E452A00F4568C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09761FB2A1E452A00F4568C /* Preview Assets.xcassets */; };
+		F0A91F382A20F3A100119F94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F0A91F372A20F3A100119F94 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F09761F62A1E452900F4568C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F09761F82A1E452A00F4568C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F09761FB2A1E452A00F4568C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F0A91F372A20F3A100119F94 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				F051A13D2A1FC313000C3D08 /* MemoryGame.swift */,
+				F0A91F372A20F3A100119F94 /* README.md */,
 				F051A13B2A1FC2D8000C3D08 /* EmojiMemoryGame.swift */,
 				F09761F42A1E452900F4568C /* MemorizeApp.swift */,
 				F09761F62A1E452900F4568C /* HomeView.swift */,
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A91F382A20F3A100119F94 /* README.md in Resources */,
 				F09761FC2A1E452A00F4568C /* Preview Assets.xcassets in Resources */,
 				F09761F92A1E452A00F4568C /* Assets.xcassets in Resources */,
 			);
