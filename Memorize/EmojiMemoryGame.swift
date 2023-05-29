@@ -13,7 +13,7 @@ class EmojiMemoryGame: ObservableObject {
     private static let emojis = ["🚲", "🚂", "🚁", "🚜", "🚕", "🏎️", "🚑", "🚓", "🚒", "✈️", "🚀", "⛵️", "🛸", "🛶", "🚌", "🏍️", "🛺", "🚠", "🛵", "🚗", "🚚", "🚇", "🛻", "🚝"]
 
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame(numberOfPairOfCards: 6) { pairIndex in
+        MemoryGame(numberOfPairOfCards: 8) { pairIndex in
             emojis[pairIndex]
         }
     }
@@ -27,5 +27,13 @@ class EmojiMemoryGame: ObservableObject {
     // MARK: - Intent
     func choose(_ card: Card) {
         model.choose(card)
+    }
+    
+    func shuffle() {
+        model.shuffle()
+    }
+    
+    func restart() {
+        model = EmojiMemoryGame.createMemoryGame()
     }
 }
